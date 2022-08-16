@@ -26,6 +26,8 @@ Las colecciones son conjuntos de (normalmente) documentos relacionados. Su base 
 db.createCollection('*NAME*')
 ```
 
+<hr>
+
 ### Mostrar Bases de Datos y/o Colecciones
 
 ```md
@@ -33,6 +35,7 @@ show dbs
 show collections
 ```
 
+<hr>
 
 ### Insertar Documentos en una Colección
 
@@ -42,6 +45,7 @@ Los documentos son objetos JSON que viven dentro de una colección. Pueden tener
 db.*COLECCION*.insert({*LLAVE*: *VALOR*})
 ```
 
+<hr>
 
 ### Encontrar un Documento
 
@@ -64,6 +68,8 @@ db.*COLECCION*.find({
 })
 ```
 
+<hr>
+
 ### Proyecciones
 
 También podemos filtrar por un segundo campo donde en este ejemplo nuestra colección desayunos, nos devolverá todos los desayunos que contengan huevos y lime.
@@ -75,6 +81,7 @@ db.breakfast.find({}, {
 })
 ```
 
+<hr>
 
 ### Metodos Primitivos
 
