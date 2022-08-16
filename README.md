@@ -55,5 +55,60 @@ A todos nuestros documentos se les crea un ID a la hora de insertar valores. Pod
 db.*COLECCION*.find(ObjectId("*ID*"))
 ```
 
+También podemos filtrar por sus llaves, ejemplo:
 
+```md
+db.*COLECCION*.find({
+  name: "dave",
+  email: "davey@aol.com"
+})
+```
+
+### Proyecciones
+
+También podemos filtrar por un segundo campo donde en este ejemplo nuestra colección desayunos, nos devolverá todos los desayunos que contengan huevos y lime.
+
+```md
+db.breakfast.find({}, {
+  eggs: true,
+  lime: true
+})
+```
+
+
+### Metodos Primitivos
+
+#### Exists
+También podemos filtrar si existe o no un documento, ejemplo, nos traera todos los desayunos que tengan huevos incluidos. Todas las funciones van con un signo $, veamos:
+
+```md
+db.breakfast.find({
+  eggs: {
+    $exists: true
+  }
+})
+```
+
+#### $gt y $lt
+
+Podemos usar $gt y $lt para buscar documentos que tengan campos que sean mayores o menores que un valor:
+
+```md
+db.breakfast.find({
+  starRating: {
+    $gt: 5
+  }
+})
+```
+
+#### $where
+
+Incluso podemos filtrar usando una expresión de JavaScript arbitraria usando $where. Esto nos permitirá comparar dos campos en un solo documento.
+
+```md
+db.sandwiches.find({
+  $where: "*EXPRESION*"
+})
+
+```
 
