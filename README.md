@@ -1,4 +1,4 @@
-<h1 align="center">DOCUMENTACIÓN MONGODB</h1>
+<h1 align="center">DOCUMENTACIÓN MONGODB 📚</h1> 
 
 <p align="justify">Documentación realizada con el objetivo de recordar algunas funcionalidades que nos permite realizar el lenguaje de MongoDB. A continuación se mostrarán los comandos básicos de CRUD (Create, Read, Update, Delete) y algunas funciones primitivas de MongoDB. Este repositiorio es de proposito educativo.</p>
 
@@ -83,6 +83,36 @@ db.breakfast.find({}, {
 
 <hr>
 
+### CRUDS EJEMPLOS
+
+#### Create
+
+```md
+db.people.insert({name: "Tony Stark", occupation: "Billionaire, playboy, philantropist..."})
+```
+
+#### Read
+
+Tenemos muchas opciones para encontrar. Ya hemos visto db.collection.find(). También podemos usar db.collection.findOne() que devolverá como máximo un resultado.
+
+#### Update
+
+Filtramos por el nombre y donde coincida, actualizamos el campo
+
+```md
+db.people.update({name: 'dave'}, {name:'brunhilde'})
+```
+
+#### Delete
+
+Remueve todos los registros con el nombre "Dave", veamos:
+
+```md
+people = db.people.remove({name:'Dave'})
+```
+
+<hr>
+
 ### Metodos Primitivos
 
 #### Exists
@@ -116,6 +146,58 @@ Incluso podemos filtrar usando una expresión de JavaScript arbitraria usando $w
 db.sandwiches.find({
   $where: "*EXPRESION*"
 })
-
 ```
+
+#### Contar
+
+Count convertirá nuestro conjunto de resultados en un número. Podemos usarlo de dos maneras. Podemos encadenarlo:
+
+```md
+db.people.find({sharks: 3}).count()
+```
+
+O podemos usarlo en lugar de find:
+
+```md
+db.people.count({sharks: 3})
+```
+
+#### Limitar y Saltar
+
+Limit nos permitirá limitar los resultados en el conjunto de salida. Saltar nos permitirá compensar el inicio. Entre ellos nos dan paginación, veamos:
+
+```md
+db.biscuits.find().limit(5)
+```
+
+Nos dará las primeras 5 galletas. Si queremos los siguientes 5 podemos saltarnos los primeros 5.
+
+```md
+db.biscuits.find().limit(5).skip(5)
+```
+
+#### Ordenar
+
+Podemos ordenar los resultados usando el operador de ordenación. Esto ordenará las arañas en orden ascendente de vellosidad, así:
+
+```md
+db.spiders.find().sort({hairiness: 1})
+```
+
+<hr>
+
+### Cursores
+
+Podemos crear una variable cursor, el cual, podemos iterar sobre el cursor usando un ciclo while simple. Podemos verificar si el cursor tiene un valor siguiente y podemos llamar a cursor.next para obtener el valor.
+
+```md
+var people = db.people.find();
+while (people.hasNext()) {
+   print(tojson(people.next()));
+}
+```
+
+<hr>
+
+- Para mayor información sobre las funciones y metodos primitivos pueden visitar el sitio web: <a href="http://nicholasjohnson.com/mongo/course/workbook/">👉 MongoDB Documentation</a>
 
