@@ -16,7 +16,44 @@ USE *DB*
 
 En MongoDB no existe ningún comando estilo create database, ni nada así, lo que hace mongodb es crear una colección (base de datos) en el momento que se le inserta un objeto o documento(registro de una tabla por llamarlo de alguna forma) a dicha colección.
 
-Las colecciones son conjuntos de (normalmente) documentos relacionados. Su base de datos puede tener tantas colecciones como desee.
 <hr>
+
+### Crear una Colección
+
+Las colecciones son conjuntos de (normalmente) documentos relacionados. Su base de datos puede tener tantas colecciones como desee. 
+
+```md
+db.createCollection('*NAME*')
+```
+
+### Mostrar Bases de Datos y/o Colecciones
+
+```md
+show dbs
+show collections
+```
+
+
+### Insertar Documentos en una Colección
+
+Los documentos son objetos JSON que viven dentro de una colección. Pueden tener cualquier formato JSON válido, con la salvedad de que no pueden contener funciones.
+
+```md
+db.*COLECCION*.insert({*LLAVE*: *VALOR*})
+```
+
+
+### Encontrar un Documento
+
+```md
+db.*COLECCION*.find()
+```
+
+A todos nuestros documentos se les crea un ID a la hora de insertar valores. Podemos hacer multiples funciones con el ID, una de estas es filtrar, veamos:
+
+```md
+db.*COLECCION*.find(ObjectId("*ID*"))
+```
+
 
 
