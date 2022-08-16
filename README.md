@@ -1,4 +1,4 @@
-<h1 align="center">DOCUMENTACIÓN SQL SERVER</h1>
+<h1 align="center">DOCUMENTACIÓN MONGODB</h1>
 
 <p align="justify">Documentación realizada con el objetivo de recordar algunas funcionalidades que nos permite realizar el lenguaje de MongoDB. A continuación se mostrarán los comandos básicos de CRUD (Create, Read, Update, Delete) y algunas funciones primitivas de MongoDB. Este repositiorio es de proposito educativo.</p>
 
